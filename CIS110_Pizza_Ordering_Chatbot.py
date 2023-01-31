@@ -1,8 +1,27 @@
-print('Hello, my name is Alex your virtual assistant. I will help you order a pizza!')
-print('I will ask you a few questions. After typing an answer, press enter.')
-userName = input('\nEnter your name:  ')
+import time,sys, colorama
+
+from colorama import Fore, Back, Style
+colorama.init(autoreset=True)
+ 
+def typingPrint(text):
+  for character in text:
+    sys.stdout.write(character)
+    sys.stdout.flush()
+    time.sleep(0.05)
+  
+def typingInput(text):
+  for character in text:
+    sys.stdout.write(character)
+    sys.stdout.flush()
+    time.sleep(0.05)
+  value = input()  
+  return value
+
+print(Fore.CYAN +'Hello, my name is Alex your virtual assistant. I will help you order a pizza!')
+print(Fore.CYAN +'I will ask you a few questions. After typing an answer, press enter.')
+userName = typingInput('\nEnter your name:  ')
 while len(userName) == 0:
-    userName = input('You must have a name! To continue, please enter your name:  ')
+    userName = input(Fore.YELLOW +'You must have a name! To continue, please enter your name:  ')
 if userName.lower() == 'thomas':
     print(f'\n Greetings {userName} The Creator, my actions are at your fingertips. What is your will?')
 else:
